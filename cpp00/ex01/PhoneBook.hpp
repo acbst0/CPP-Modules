@@ -2,6 +2,7 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
+# include <iomanip>
 # define MAX_CONT 8
 
 class PhoneBook

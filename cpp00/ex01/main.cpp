@@ -1,31 +1,62 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-/*void add()
+void	printline(std::string str)
 {
-	std::string	firstname;
-	std::string	lastname;
-	std::string	nickname;
-	std::string	phonenum;
-	std::string	darkness;
+	if (str.length() > 10)
+	{
+		std::cout << std::setw(10) << str.substr(0, 9) << ".";
+	}
+	else
+	{
+		std::cout << std::setw(10) << str;
+	}
+	std::cout << "|";
+}
 
-	std::cout << "First name of new contact :" << std::endl;
-	std::getline(std::cin, firstname);
-	std::cout << "Last name of new contact :" << std::endl;
-	std::getline(std::cin, lastname);
-	std::cout << "Nickname of new contact :" << std::endl;
-	std::getline(std::cin, nickname);
-	std::cout << "Phone Number of new contact :" << std::endl;
-	std::getline(std::cin, phonenum);
-	std::cout << "Dark secret of new contact :" << std::endl;
-	std::getline(std::cin, darkness);
-	//Contact::Contact(firstname, lastname, nickname, phonenum, darkness);
-}*/
+void	printCT(Contact *ct)
+{
+	std::string firstname;
+	std::string lastname;
+	std::string nickname;
+	std::string phonenum;
+
+	firstname = ct->getFirstName();
+	lastname = ct->getLastName();
+	nickname = ct->getNickName();
+	phonenum = ct->getPhoneNum();
+
+	std::cout << "|";
+	printline(firstname);
+	printline(lastname);
+	printline(nickname);
+	printline(phonenum);
+	std::cout << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
+}
+
+void	printPB(PhoneBook *pb)
+{
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
+	std::cout << "|    Number|First Name| Last Name| Nick Name|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
+	if (pb == NULL)
+		return ;
+	else
+	{
+		for (int i = 0; (i < 8 && (pb->cnt + i) != NULL); i++)
+		{
+			printCT(pb->cnt + i);
+		}
+	}
+}
+
 int main()
 {
 	PhoneBook pb;
 	std::string	input;
 
+	printPB(NULL);
 	input = "NULL";
 	while (1)
 	{
@@ -35,7 +66,7 @@ int main()
 		if (input.compare("ADD") == 0)
 			pb.add(&pb);
 		else if (input.compare("SEARCH") == 0)
-			pb.search(&pb);
+			printPB(&pb);
 		else if (input.compare("EXIT") == 0)
 			break ;
 	}
