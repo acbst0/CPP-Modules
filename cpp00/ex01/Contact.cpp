@@ -2,7 +2,7 @@
 
 Contact::Contact()
 {
-	
+	this->_Empty = false;
 }
 
 Contact::Contact(std::string firstname, std::string lastname, std::string nickname, std::string phonenum, std::string darkness)
@@ -12,6 +12,7 @@ Contact::Contact(std::string firstname, std::string lastname, std::string nickna
 	this->_NickName = nickname;
 	this->_PhoneNum = phonenum;
 	this->_Darkness = darkness;
+	this->_Empty = true;
 }
 
 Contact::~Contact()
@@ -38,7 +39,18 @@ std::string	Contact::getPhoneNum()
 {
 	return (this->_PhoneNum);
 }
+
 std::string	Contact::getDarkness()
 {
 	return (this->_Darkness);
+}
+
+void	Contact::makeEmpty()
+{
+	this->_Empty = false;
+}
+
+bool	Contact::getEmpty()
+{
+	return (this->_Empty);
 }

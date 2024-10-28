@@ -3,6 +3,10 @@
 PhoneBook::PhoneBook()
 {
 	_input_times = 0;
+	for (int i = 0; i < MAX_CONT; i++)
+	{
+		cnt[i].makeEmpty();
+	}
 }
 
 PhoneBook::~PhoneBook()

@@ -12,6 +12,7 @@ class Contact
 		std::string	_NickName;
 		std::string	_PhoneNum;
 		std::string	_Darkness;
+		bool		_Empty;
 	public:
 		Contact();
 		~Contact();
@@ -21,6 +22,8 @@ class Contact
 		std::string	getNickName();
 		std::string	getPhoneNum();
 		std::string	getDarkness();
+		void		makeEmpty();
+		bool		getEmpty();
 
 };
 

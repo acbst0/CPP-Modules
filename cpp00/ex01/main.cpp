@@ -5,7 +5,7 @@ void	printline(std::string str)
 {
 	if (str.length() > 10)
 	{
-		std::cout << std::setw(10) << str.substr(0, 9) << ".";
+		std::cout << str.substr(0, 9) << ".";
 	}
 	else
 	{
@@ -14,7 +14,7 @@ void	printline(std::string str)
 	std::cout << "|";
 }
 
-void	printCT(Contact *ct)
+void	printCT(Contact *ct, int i)
 {
 	std::string firstname;
 	std::string lastname;
@@ -27,26 +27,27 @@ void	printCT(Contact *ct)
 	phonenum = ct->getPhoneNum();
 
 	std::cout << "|";
+	printline(std::to_string((i % MAX_CONT) + 1));
 	printline(firstname);
 	printline(lastname);
 	printline(nickname);
 	printline(phonenum);
 	std::cout << std::endl;
-	std::cout << "|----------|----------|----------|----------|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|----------|" << std::endl;
 }
 
 void	printPB(PhoneBook *pb)
 {
-	std::cout << "|----------|----------|----------|----------|" << std::endl;
-	std::cout << "|    Number|First Name| Last Name| Nick Name|" << std::endl;
-	std::cout << "|----------|----------|----------|----------|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|----------|" << std::endl;
+	std::cout << "|        ID|    Number|First Name| Last Name| Nick Name|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|----------|" << std::endl;
 	if (pb == NULL)
 		return ;
 	else
 	{
-		for (int i = 0; (i < 8 && (pb->cnt + i) != NULL); i++)
+		for (int i = 0; i < 8 && pb->cnt[i].getEmpty(); i++)
 		{
-			printCT(pb->cnt + i);
+			printCT(&pb->cnt[i], i);
 		}
 	}
 }
