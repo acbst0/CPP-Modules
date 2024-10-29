@@ -13,7 +13,7 @@ class PhoneBook
 		Contact cnt[MAX_CONT];
 		PhoneBook();
 		~PhoneBook();
-		void	add(PhoneBook *pb);
+		int	add(PhoneBook *pb);
 		void	search(PhoneBook *pb);
 };
 

@@ -1,6 +1,5 @@
-SRC = Contact.cpp \
-		main.cpp \
-		PhoneBook.cpp \
+SRC = Account.cpp \
+		test.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,7 +9,7 @@ RM = rm -f
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = PhoneBook
+NAME = Account
 
 all: $(NAME)
 
