@@ -1,5 +1,5 @@
 SRC = Account.cpp \
-		test.cpp \
+		tests.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
