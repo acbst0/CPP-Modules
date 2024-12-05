@@ -9,6 +9,7 @@ class PhoneBook
 {
 	private:
 		int	_input_times;
+		bool isNumber(std::string str);
 	public:
 		Contact cnt[MAX_CONT];
 		PhoneBook();

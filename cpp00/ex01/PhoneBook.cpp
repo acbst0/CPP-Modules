@@ -17,6 +17,16 @@ PhoneBook::~PhoneBook()
 	
 }
 
+bool PhoneBook::isNumber(std::string str)
+{
+	for (int i = 0; str.c_str[i]; i++)
+	{
+		if (!std::isdigit(str.c_str[i]))
+		return (false);
+	}
+	return (true);
+}
+
 int	PhoneBook::add(PhoneBook *pb)
 {
 	std::string	firstname;
@@ -37,7 +47,7 @@ int	PhoneBook::add(PhoneBook *pb)
 	{
 		std::cout << "Phone Number of new contact :" << std::endl;
 		std::getline(std::cin, phonenum);
-		if (std::is(phonenum))
+		if (pb->isNumber(phonenum) == false)
 			std::cout << "There is a problem about Phone Number" << std::endl;
 		else
 			flag = 0;
