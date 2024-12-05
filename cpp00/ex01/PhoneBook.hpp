@@ -15,6 +15,8 @@ class PhoneBook
 		~PhoneBook();
 		int	add(PhoneBook *pb);
 		void	search(PhoneBook *pb);
+		void	printPB();
+		void	printCT(Contact *ct, int i);
 };
 
 #endif
