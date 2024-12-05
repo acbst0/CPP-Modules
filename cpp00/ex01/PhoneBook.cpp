@@ -17,15 +17,15 @@ PhoneBook::~PhoneBook()
 	
 }
 
-bool PhoneBook::isNumber(std::string str)
-{
-	for (int i = 0; str.c_str[i]; i++)
-	{
-		if (!std::isdigit(str.c_str[i]))
-		return (false);
-	}
-	return (true);
-}
+// bool PhoneBook::isNumber(std::string str)
+// {
+// 	for (int i = 0; str.c_str[i]; i++)
+// 	{
+// 		if (!std::isdigit(str.c_str[i]))
+// 		return (false);
+// 	}
+// 	return (true);
+// }
 
 int	PhoneBook::add(PhoneBook *pb)
 {
@@ -34,7 +34,7 @@ int	PhoneBook::add(PhoneBook *pb)
 	std::string	nickname;
 	std::string	phonenum;
 	std::string	darkness;
-	bool flag = 1;
+	// bool flag = 1;
 
 
 	std::cout << "First name of new contact :" << std::endl;
@@ -43,15 +43,17 @@ int	PhoneBook::add(PhoneBook *pb)
 	std::getline(std::cin, lastname);
 	std::cout << "Nickname of new contact :" << std::endl;
 	std::getline(std::cin, nickname);
-	while (flag == 1)
-	{
-		std::cout << "Phone Number of new contact :" << std::endl;
-		std::getline(std::cin, phonenum);
-		if (pb->isNumber(phonenum) == false)
-			std::cout << "There is a problem about Phone Number" << std::endl;
-		else
-			flag = 0;
-	}
+	// while (flag == 1)
+	// {
+	// 	std::cout << "Phone Number of new contact :" << std::endl;
+	// 	std::getline(std::cin, phonenum);
+	// 	if (pb->isNumber(phonenum) == false)
+	// 		std::cout << "There is a problem about Phone Number" << std::endl;
+	// 	else
+	// 		flag = 0;
+	// }
+	std::cout << "Phone Number of new contact :" << std::endl;
+	std::getline(std::cin, phonenum);
 	std::cout << "Dark secret of new contact :" << std::endl;
 	std::getline(std::cin, darkness);
 
@@ -71,6 +73,11 @@ void	PhoneBook::search(PhoneBook *pb)
 	if (!(std::getline(std::cin, input)))
 		return ;
 	i = atoi(input.c_str());
+	if (i <=1 || i >=8 || !(_input_times <= MAX_CONT && i <= _input_times))
+	{
+		std::cout << "Invalid ID !" << std::endl;
+		return ;
+	}
 	std::cout << "First Name : " << pb->cnt[i - 1].getFirstName() << std::endl;
 	std::cout << "Last Name : " << pb->cnt[i - 1].getLastName() << std::endl;
 	std::cout << "Nick Name : " << pb->cnt[i - 1].getNickName() << std::endl;
