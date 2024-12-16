@@ -1,7 +1,4 @@
 SRC = main.cpp \
-		HumanB.cpp \
-		HumanA.cpp \
-		Weapon.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -11,7 +8,7 @@ RM = rm -f
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = weapon
+NAME = brain
 
 all: $(NAME)
 
