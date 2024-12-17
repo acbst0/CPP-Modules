@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 12:27:40 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/17 12:27:41 by abostano         ###   ########.fr       */
+/*   Created: 2024/12/17 13:40:11 by abostano          #+#    #+#             */
+/*   Updated: 2024/12/17 15:16:03 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Harl.hpp"
 
 int	main(int ac, char **av)
 {
-	int	i = 1;
-	int j = 0;
+	std::string	input;
+	Harl		hrl;
 
-	if (ac == 1)
+	if (ac != 2)
 	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
+		std::cout << "Invalid count of arguements!" << std::endl;
+		return 1;
 	}
-	for (int i = 1; i < ac; i++)
-		for (int j = 0; av[i][j]; j++)
-			std::cout << (char)std::toupper(av[i][j]);
-	std::cout << std::endl;
-	return (0);
+	input = std::string(av[1]);
+	
+	hrl.harlFilter(input);
 }
