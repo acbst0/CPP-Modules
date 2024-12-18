@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:28:03 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/17 12:28:04 by abostano         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:34:58 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@
 class PhoneBook
 {
 	private:
-		int	_input_times;
-		bool isNumber(std::string str);
+		int			_input_times;
+		Contact		cnt[MAX_CONT];
+		bool 		isNumber(std::string str);
+		void		printPB();
+		void		printCT(Contact *ct, int i);
+		void		printline(std::string str);
+		std::string	to_string(int value);
 	public:
-		Contact cnt[MAX_CONT];
 		PhoneBook();
 		~PhoneBook();
-		int	add(PhoneBook *pb);
-		void	search(PhoneBook *pb);
-		void	printPB();
-		void	printCT(Contact *ct, int i);
+		int			add(PhoneBook *pb);
+		int			search(PhoneBook *pb);
 };
 
 #endif

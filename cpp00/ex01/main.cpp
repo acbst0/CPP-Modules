@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:27:57 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/17 12:27:58 by abostano         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:25:34 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int main()
 	PhoneBook pb;
 	std::string	input;
 
-	pb.printPB();
 	std::cout << std::endl;
 	input = "NULL";
-	std::cout << "Hello! Welcome to The PhoneBook" << std::endl;
+	std::cout << YELLOW << "	-------------------------------	" << DEFAULT << std::endl;
+	std::cout << YELLOW << "	Hello! Welcome to The PhoneBook" << DEFAULT << std::endl;
+	std::cout << YELLOW << "	-------------------------------" << DEFAULT << std::endl;
 	while (1)
 	{
 		std::cout << "Plz use one of commands (ADD, SEARCH, EXIT) :" << std::endl;
@@ -32,11 +33,14 @@ int main()
 				break ;
 		}
 		else if (input.compare("SEARCH") == 0)
-			pb.search(&pb);
+		{
+			if (pb.search(&pb) == 1)
+				break;
+		}
 		else if (input.compare("EXIT") == 0)
 			break ;
 		else
-			std::cout << "Invalid input" << std::endl;
+			std::cout << RED << "Invalid input!" << DEFAULT << std::endl;
 	}
-	return (1);
+	return (0);
 }
