@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:28:00 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/18 17:33:00 by abostano         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:50:27 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int	PhoneBook::search(PhoneBook *pb)
 
 	pb->printPB();
 	std::cout << "Chose one of them for details :" << std::endl;
+	
 	if (!(std::getline(std::cin, input)))
 		return 0;
 	if (input.compare("EXIT") == 0)
@@ -164,6 +165,6 @@ void	PhoneBook::printPB()
 	std::cout << LIGHT_BLUE << "|----------|----------|----------|----------|----------|" << std::endl;
 	std::cout << "|        ID|First Name| Last Name| Nick Name|    Number|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|----------|" << DEFAULT <<std::endl;
-	for (int i = 0; i < 8 && this->cnt[i].getEmpty(); i++)
+	for (int i = 0; i < MAX_CONT && this->cnt[i].getEmpty(); i++)
 		printCT(&this->cnt[i], i);
 }
