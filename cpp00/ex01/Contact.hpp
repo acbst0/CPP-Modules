@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:27:53 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/18 14:17:01 by abostano         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:27:38 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # define DEFAULT "\001\033[0;39m\002"
 # define RED "\001\033[1;91m\002"
 # define YELLOW "\001\033[1;93m\002"
-# define MAGENTA "\001\033[1;95m\002"
-# define GRAY "\001\033[1;90m\002"
 
 class Contact
 {
