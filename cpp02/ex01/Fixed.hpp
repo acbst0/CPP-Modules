@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 16:19:14 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/26 13:39:09 by abostano         ###   ########.fr       */
+/*   Created: 2024/12/26 15:46:58 by abostano          #+#    #+#             */
+/*   Updated: 2024/12/26 15:54:03 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-int main( void )
+# include <iostream>
+
+class Fixed
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+	private:
+		
+	public:
+		Fixed();
+		Fixed(int i);
+		Fixed(float f);
+		~Fixed();
+		Fixed& operator = (const Fixed &other);
+		float toFloat( void ) const;
+		int	toInt( void ) const;
+};
+
+#endif
