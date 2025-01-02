@@ -12,9 +12,7 @@
 
 #include "replace.hpp"
 
-#include <string>
-
-std::string filename(const char *av)
+static std::string filename(const char *av)
 {
     std::string file;
 
@@ -27,7 +25,7 @@ std::string filename(const char *av)
 }
 
 
-int	change(std::string str, char **av)
+static int	change(std::string str, char **av)
 {
 	std::ofstream	outfile;
 	int				pos;
