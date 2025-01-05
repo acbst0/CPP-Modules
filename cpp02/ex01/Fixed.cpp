@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 15:55:47 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/26 17:02:00 by abostano         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:50:15 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,22 @@
 
 Fixed::Fixed()
 {
-
+	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int i)
+Fixed::Fixed(const int i)
 {
-	
+	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float f)
+Fixed::Fixed(const float f)
 {
+	std::cout << "Float constructor called" << std::endl;
+}
 
+Fixed::Fixed(const Fixed& ref)
+{
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed()

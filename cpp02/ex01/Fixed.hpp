@@ -6,7 +6,7 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 15:46:58 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/26 15:54:03 by abostano         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:10:30 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ class Fixed
 		
 	public:
 		Fixed();
-		Fixed(int i);
-		Fixed(float f);
+		Fixed(const int i);
+		Fixed(const float f);
+		Fixed(const Fixed& ref);
 		~Fixed();
 		Fixed& operator = (const Fixed &other);
 		float toFloat( void ) const;
