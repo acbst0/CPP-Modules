@@ -12,45 +12,57 @@
 
 #include "Fixed.hpp"
 
+const int Fixed::_bits = 8;
+
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
+	this->_value = 0;
 }
 
 Fixed::Fixed(const int i)
 {
 	std::cout << "Int constructor called" << std::endl;
+	this->_value = i << this->_bits;
 }
 
 Fixed::Fixed(const float f)
 {
 	std::cout << "Float constructor called" << std::endl;
+	this->_value = roundf(f * (1 << this->_bits));
 }
 
 Fixed::Fixed(const Fixed& ref)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	*this = ref;
 }
 
 Fixed::~Fixed()
 {
-	
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	if (other != *this)
-	{
-		
-	}
+	std::cout << "Copy assigment operator called" << std::endl;
+	if (&other != this)
+		this->_value = other._value;
+	return (*this);
 }
 
 float Fixed::toFloat( void ) const
 {
-	
+	return ((float )this->_value / (1 << this->_bits));
 }
 
 int	Fixed::toInt( void ) const
 {
-	
+	return (this->_value >> this->_bits);
+}
+
+std::ostream& operator << (std::ostream &out, Fixed const &value)
+{
+	out << value.toFloat();
+	return (out);
 }

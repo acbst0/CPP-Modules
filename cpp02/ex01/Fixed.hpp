@@ -14,11 +14,13 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
 	private:
-		
+		int _value;
+		static const int _bits;
 	public:
 		Fixed();
 		Fixed(const int i);
@@ -29,5 +31,7 @@ class Fixed
 		float toFloat( void ) const;
 		int	toInt( void ) const;
 };
+
+std::ostream& operator << (std::ostream &out, Fixed const &value);
 
 #endif
