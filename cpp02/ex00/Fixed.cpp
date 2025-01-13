@@ -6,11 +6,13 @@
 /*   By: abostano <abostano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 16:56:39 by abostano          #+#    #+#             */
-/*   Updated: 2024/12/26 15:12:17 by abostano         ###   ########.fr       */
+/*   Updated: 2025/01/13 13:50:19 by abostano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_bits = 8;
 
 Fixed::Fixed(): fp_nv(0)
 {
