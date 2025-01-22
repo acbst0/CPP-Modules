@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
@@ -29,6 +29,23 @@ int main()
 		std::cout << "\033[34mI thinks it's dead!\033[0m" << std::endl;
 		sc.beRepaired(10);
 		std::cout << "\033[34mDid you really tried that :D\033[0m" << std::endl;
+	}
+	std::cout << std::endl << "\033[31mFRAGTRAP TEST\033[0m" << std::endl << std::endl;
+	{
+		FragTrap ft("VIRRAK");
+
+		ft.highFivesGuys();
+		ft.takeDamage(20);
+		ft.beRepaired(4);
+		ft.attack("FLIES");
+		ft.takeDamage(95);
+		ft.takeDamage(2);
+		
+		FragTrap second(ft);
+
+		second.takeDamage(35);
+		second.attack("Another flies");
+		second.beRepaired(15);
 	}
 	return (0);
 }

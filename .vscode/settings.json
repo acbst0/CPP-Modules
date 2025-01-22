@@ -84,7 +84,10 @@
 	"cinttypes": "cpp",
 	"typeindex": "cpp",
 	"variant": "cpp",
-	"semaphore": "cpp"
+	"semaphore": "cpp",
+	"charconv": "cpp",
+	"format": "cpp",
+	"text_encoding": "cpp"
 },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
