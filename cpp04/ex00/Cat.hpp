@@ -7,8 +7,9 @@ class Cat : public Animal
 {
 	public:
 		Cat();
+		Cat(const Cat& ref);
 		~Cat();
-		std::string getType() const;
+		Cat& operator=(const Cat& ref);
 		void makeSound() const;
 };
 

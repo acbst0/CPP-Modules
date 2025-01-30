@@ -1,7 +1,9 @@
 SRC = main.cpp \
 		Animal.cpp \
 		Cat.cpp \
-		Dog.cpp
+		Dog.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
