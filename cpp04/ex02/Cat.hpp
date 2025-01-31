@@ -17,5 +17,4 @@ class Cat : public Animal
 		void printIdea(int i);
 };
 
-
 #endif

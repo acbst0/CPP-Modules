@@ -5,9 +5,8 @@
 int main()
 {
 	{
-		const Animal* meta = new Animal();
-		Dog* j = new Dog();
-		Cat* i = new Cat();
+		Animal* j = new Dog();
+		Animal* i = new Cat();
 
 		std::cout << std::endl;
 
@@ -20,23 +19,9 @@ int main()
 		i->makeSound();
 		std::cout << "Dog says : ";
 		j->makeSound();
-		meta->makeSound();
-
-		std::cout << std::endl;
-
-		i->setCatIdea("Fish Fish Fish");
-		std::cout << "What is cat thinking?" << std::endl;
-		i->printIdea(5);
-
-		std::cout << std::endl;
-
-		j->setDogIdea("Game Game Game");
-		std::cout << "What is Dog thinking?" << std::endl;
-		j->printNidea(5);
 
 		std::cout << std::endl;
 		
-		delete meta;
 		delete i;
 		delete j;
 	}
