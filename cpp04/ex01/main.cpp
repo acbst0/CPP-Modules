@@ -6,8 +6,8 @@ int main()
 {
 	{
 		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		Dog* j = new Dog();
+		Cat* i = new Cat();
 
 		std::cout << std::endl;
 
@@ -24,6 +24,18 @@ int main()
 
 		std::cout << std::endl;
 
+		i->setCatIdea("Hey");
+		std::cout << "What is cat thinking?" << std::endl;
+		i->printIdea(5);
+
+		std::cout << std::endl;
+
+		i->setCatIdea("Hey");
+		std::cout << "What is cat thinking?" << std::endl;
+		i->printIdea(5);
+
+		std::cout << std::endl;
+		
 		delete meta;
 		delete i;
 		delete j;

@@ -31,7 +31,10 @@ void Brain::setAllIdeas(std::string idea)
 		this->ideas[i] = idea;
 }
 
-std::string* Brain::getAllIdeas()
+void Brain::printNidea(int i)
 {
-	return this->ideas;
+	if (i < 0 && i > 99)
+		return ;
+	for (int j = 0; j < i; j++)
+		std::cout << j + 1 << " Idea : " << this->ideas[j] << std::endl;
 }

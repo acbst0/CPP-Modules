@@ -14,7 +14,7 @@ class Brain
 		Brain& operator=(const Brain& ref);
 
 		void setAllIdeas(std::string idea);
-		std::string* getAllIdeas();
+		void printNidea(int i);
 };
 
 #endif

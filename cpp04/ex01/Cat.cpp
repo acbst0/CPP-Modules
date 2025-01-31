@@ -34,3 +34,13 @@ void Cat::makeSound() const
 {
 	std::cout << "MEOWWW" << std::endl;
 }
+
+void Cat::setCatIdea(const std::string& str)
+{
+	br->setAllIdeas(str);
+}
+
+void Cat::printIdea(int i)
+{
+	this->br->printNidea(i);
+}

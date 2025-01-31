@@ -13,6 +13,8 @@ class Dog : public Animal
 		~Dog();
 		Dog& operator=(const Dog& ref);
 		void makeSound() const;
+		void setDogIdea(std::string str);
+		void printNidea(int i);
 };
 
 #endif
