@@ -8,6 +8,7 @@ int main()
 		const Animal* meta = new Animal();
 		Dog* j = new Dog();
 		Cat* i = new Cat();
+		Dog* copyj = new Dog(*j);
 
 		std::cout << std::endl;
 
@@ -35,7 +36,15 @@ int main()
 		j->printNidea(5);
 
 		std::cout << std::endl;
+
+		std::cout << "Original Dog Brain :" << std::endl;
+		j->printBrainAddress();
+		std::cout << "Copy Dog Brain     :" << std::endl;
+		copyj->printBrainAddress();
 		
+		std::cout << std::endl;
+
+		delete copyj;
 		delete meta;
 		delete i;
 		delete j;

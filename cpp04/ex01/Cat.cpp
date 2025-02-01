@@ -10,7 +10,8 @@ Cat::Cat()
 Cat::Cat(const Cat& ref) : Animal(ref)
 {
 	std::cout << "Cat has been created with copy constructor!" << std::endl;
-	*this = ref;
+	this->br = new Brain(*ref.br);
+	this->type = ref.type;
 }
 
 Cat::~Cat()
@@ -25,7 +26,8 @@ Cat& Cat::operator=(const Cat& ref)
 	if (this != &ref)
 	{
 		this->type = ref.type;
-		this->br = ref.br;
+		delete this->br;
+		this->br = new Brain(*ref.br);
 	}
 	return (*this);
 }
@@ -43,4 +45,9 @@ void Cat::setCatIdea(std::string str)
 void Cat::printIdea(int i)
 {
 	this->br->printNidea(i);
+}
+
+void Cat::printBrainAddress()
+{
+	std::cout << this->br << std::endl;
 }

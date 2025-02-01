@@ -10,7 +10,8 @@ Dog::Dog()
 Dog::Dog(const Dog& ref) : Animal(ref)
 {
 	std::cout << "Dog has been created with copy constructor!" << std::endl;
-	*this = ref;
+	this->br = new Brain(*ref.br);
+	this->type = ref.type;
 }
 
 Dog::~Dog()
@@ -21,11 +22,12 @@ Dog::~Dog()
 
 Dog& Dog::operator=(const Dog& ref)
 {
-	std::cout << "Dog copy assigment operator has been called!" << std::endl;
+	std::cout << "Dog copy assignment operator has been called!" << std::endl;
 	if (this != &ref)
 	{
 		this->type = ref.type;
-		this->br =ref.br;
+		delete this->br;
+		this->br = new Brain(*ref.br);
 	}
 	return (*this);
 }
@@ -42,5 +44,10 @@ void Dog::setDogIdea(std::string str)
 
 void Dog::printNidea(int i)
 {
-	return (this->br->printNidea(i));
+	this->br->printNidea(i);
+}
+
+void Dog::printBrainAddress()
+{
+	std::cout << this->br << std::endl;
 }
