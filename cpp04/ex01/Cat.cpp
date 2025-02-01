@@ -16,8 +16,8 @@ Cat::Cat(const Cat& ref) : Animal(ref)
 
 Cat::~Cat()
 {
-	std::cout << "Cat has been destroyed!" << std::endl;
 	delete this->br;
+	std::cout << "Cat has been destroyed!" << std::endl;
 }
 
 Cat& Cat::operator=(const Cat& ref)

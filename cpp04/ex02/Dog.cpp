@@ -16,8 +16,8 @@ Dog::Dog(const Dog& ref) : Animal(ref)
 
 Dog::~Dog()
 {
-	std::cout << "Dog has been destroyed!" << std::endl;
 	delete this->br;
+	std::cout << "Dog has been destroyed!" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& ref)
