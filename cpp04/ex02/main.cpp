@@ -5,8 +5,9 @@
 int main()
 {
 	{
-		Animal* j = new Dog();
-		Animal* i = new Cat();
+		Dog* j = new Dog();
+		Cat* i = new Cat();
+		Dog* copyj = new Dog(*j);
 
 		std::cout << std::endl;
 
@@ -21,7 +22,27 @@ int main()
 		j->makeSound();
 
 		std::cout << std::endl;
+
+		i->setCatIdea("Fish Fish Fish");
+		std::cout << "What is cat thinking?" << std::endl;
+		i->printIdea(5);
+
+		std::cout << std::endl;
+
+		j->setDogIdea("Game Game Game");
+		std::cout << "What is Dog thinking?" << std::endl;
+		j->printNidea(5);
+
+		std::cout << std::endl;
+
+		std::cout << "Original Dog Brain :" << std::endl;
+		j->printBrainAddress();
+		std::cout << "Copy Dog Brain     :" << std::endl;
+		copyj->printBrainAddress();
 		
+		std::cout << std::endl;
+
+		delete copyj;
 		delete i;
 		delete j;
 	}

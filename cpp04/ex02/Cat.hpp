@@ -15,6 +15,8 @@ class Cat : public Animal
 		void makeSound() const;
 		void setCatIdea(std::string str);
 		void printIdea(int i);
+		void printBrainAddress();
 };
+
 
 #endif
