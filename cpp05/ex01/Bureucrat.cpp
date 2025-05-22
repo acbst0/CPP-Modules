@@ -117,10 +117,10 @@ void Bureucrat::signForm(Form& ref)
 	try
 	{
 		ref.beSigned(*this);
+		std::cout << this->_name << " signed " << ref.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << this->_name << "couldn’t sign the " << ref.getName() << " because " << e.what() << '\n';
+		std::cerr << this->_name << " couldn’t sign the " << ref.getName() << " because " << e.what() << std::endl;
 	}
-	std::cout << this->_name << " signed " << ref.getName();
 }

@@ -2,7 +2,7 @@
 # define FORM_HPP
 
 # include <iostream>
-# include "Bureucrat.hpp"
+class Bureucrat;
 
 class Form
 {
@@ -21,7 +21,9 @@ class Form
 		Form(const std::string& name, const int r2s, const int r2e);
 		Form(const int r2s, const int r2e);
 
-		void beSigned(Bureucrat& ref);
+		void beSigned(const Bureucrat& ref);
+		int r2s();
+		int r2e();
 
 		const std::string getName();
 		class GradeTooHighException : public std::exception
