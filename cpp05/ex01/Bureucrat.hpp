@@ -2,6 +2,7 @@
 # define BUREUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 class Bureucrat
 {
@@ -24,6 +25,8 @@ class Bureucrat
 
 		void increment();
 		void decrement();
+
+		void signForm(Form& ref);
 
 		class GradeTooHighException : public std::exception
 		{

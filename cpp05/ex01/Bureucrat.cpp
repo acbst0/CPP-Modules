@@ -111,3 +111,16 @@ std::ostream& operator<<(std::ostream& out, Bureucrat& ref)
 	out << ref.getName() << ", bureaucrat grade " << ref.getGrade() << "." << std::endl;
 	return out;
 }
+
+void Bureucrat::signForm(Form& ref)
+{
+	try
+	{
+		ref.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name << "couldn’t sign the " << ref.getName() << " because " << e.what() << '\n';
+	}
+	std::cout << this->_name << " signed " << ref.getName();
+}
