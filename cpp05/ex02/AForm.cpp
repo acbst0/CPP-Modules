@@ -1,24 +1,24 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureucrat.hpp"
 
-Form::Form() : _name("no-name"), required2sign(150), required2exec(150)
+AForm::AForm() : _name("no-name"), required2sign(150), required2exec(150)
 {
 	this->isSigned = false;
 	std::cout << "A form named " << this->_name << " has been created with default constructor!" << std::endl;
 }
 
-Form::Form(const Form& ref) : _name(ref._name), required2sign(ref.required2sign), required2exec(ref.required2exec)
+AForm::AForm(const AForm& ref) : _name(ref._name), required2sign(ref.required2sign), required2exec(ref.required2exec)
 {
 	this->isSigned = ref.isSigned;
 	std::cout << "A form named " << this->_name << " has been created with copy constructor!" << std::endl;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 	std::cout << "A form named " << this->_name << " has been destroyed!" << std::endl;
 }
 
-Form& Form::operator=(const Form& ref)
+AForm& AForm::operator=(const AForm& ref)
 {
 	if (this != &ref)
 	{
@@ -27,63 +27,63 @@ Form& Form::operator=(const Form& ref)
 	return *this;
 }
 
-Form::Form(const std::string& name, const int r2s, const int r2e) : _name(name), required2sign(r2s), required2exec(r2e)
+AForm::AForm(const std::string& name, const int r2s, const int r2e) : _name(name), required2sign(r2s), required2exec(r2e)
 {
 	this->isSigned = false;
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-Form::Form(const int r2s, const int r2e) : _name("no-name"), required2sign(r2s), required2exec(r2e)
+AForm::AForm(const int r2s, const int r2e) : _name("no-name"), required2sign(r2s), required2exec(r2e)
 {
 	this->isSigned = false;
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-Form::Form(const std::string& name) : _name(name), required2exec(75), required2sign(75)
+AForm::AForm(const std::string& name) : _name(name), required2exec(75), required2sign(75)
 {
 	this->isSigned = false;
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-void Form::beSigned(const Bureucrat& ref)
+void AForm::beSigned(const Bureucrat& ref)
 {
 	if (ref.getGrade() > this->required2sign)
 	{
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	}
 	if (ref.getGrade() < 1)
 	{
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	}
 	this->isSigned = true;
 }
 
-const std::string Form::getName()
+const std::string AForm::getName()
 {
 	return this->_name;
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high!");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low!");
 }
 
-int Form::r2s()
+int AForm::r2s()
 {
 	return this->required2sign;
 }
 
-int Form::r2e()
+int AForm::r2e()
 {
 	return this->required2exec;
 }
 
-std::ostream& operator<<(std::ostream& out, Form& ref)
+std::ostream& operator<<(std::ostream& out, AForm& ref)
 {
 	out << ref.getName() << ", forms required for sign " << ref.r2s() << " and required for execution " << ref.r2e() << "." << std::endl;
 	return out;

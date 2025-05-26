@@ -1,10 +1,10 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 class Bureucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string _name;
@@ -13,16 +13,16 @@ class Form
 		const int required2exec;
 
 	public:
-		Form();
-		Form(const Form& ref);
-		~Form();
-		Form& operator=(const Form& ref);
+		AForm();
+		AForm(const AForm& ref);
+		~AForm();
+		AForm& operator=(const AForm& ref);
 
-		Form(const std::string& name, const int r2s, const int r2e);
-		Form(const int r2s, const int r2e);
-		Form(const std::string& name);
+		AForm(const std::string& name, const int r2s, const int r2e);
+		AForm(const int r2s, const int r2e);
+		AForm(const std::string& name);
 
-		void beSigned(const Bureucrat& ref);
+		virtual void beSigned(const Bureucrat& ref) = 0;
 		int r2s();
 		int r2e();
 
@@ -40,7 +40,7 @@ class Form
 		};
 };
 
-std::ostream& operator<<(std::ostream& out, Form& ref);
+std::ostream& operator<<(std::ostream& out, AForm& ref);
 
 
 #endif
