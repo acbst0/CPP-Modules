@@ -4,13 +4,13 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubberry Creation Form", 145, 137), _target("default")
 {
 	std::cout << this->getName() << " has been created with target ";
-	std::cout << this->_target << " and 145 sign grade, 137" << std::endl;
+	std::cout << this->_target << " and 145 sign grade, 137 exec grade" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& ref) : AForm(ref), _target(ref._target)
 {
 	std::cout << this->getName() << " copy has been created with target ";
-	std::cout << this->_target << " and 145 sign grade, 137" << std::endl;
+	std::cout << this->_target << " and 145 sign grade, 137 exec grade" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -32,7 +32,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("Shrubberry Creation Form",145, 137), _target(target)
 {
 	std::cout << this->getName() << " has been created with target ";
-	std::cout << this->_target << " and 145 sign grade, 137" << std::endl;
+	std::cout << this->_target << " and 145 sign grade, 137 exec grade" << std::endl;
 }
 
 void ShrubberyCreationForm::action() const

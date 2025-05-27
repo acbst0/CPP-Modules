@@ -1,7 +1,9 @@
 SRC = main.cpp \
 		Bureaucrat.cpp \
 		AForm.cpp \
-		ShrubberyCreationForm.cpp 
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm
 
 OBJ = $(SRC:.cpp=.o)
 
