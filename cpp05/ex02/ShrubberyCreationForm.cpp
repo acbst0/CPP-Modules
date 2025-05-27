@@ -55,6 +55,7 @@ void ShrubberyCreationForm::action() const
 		out << "       , -=-~  .-^- _         " << std::endl;
 
 		out.close();
+		std::cout << _target + std::string("_shrubbery") << " has been created!" << std::endl;
 	}
 	else
 		throw ShrubberyCreationForm::OpenFileExeption();

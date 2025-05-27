@@ -68,6 +68,17 @@ void AForm::setisSigned(const AForm& ref)
 	this->isSigned = ref.isSigned;
 }
 
+void AForm::execute(const Bureaucrat& executor) const
+{
+	if (this->isSigned == false)
+		throw AForm::IsNotSigned();
+	if (executor.getGrade() > 150 || executor.getGrade() > this->required2exec)
+		throw AForm::GradeTooLowException();
+	else if (executor.getGrade() < 1)
+		throw AForm::GradeTooHighException();
+	this->action();
+}
+
 const char* AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high!");
@@ -76,6 +87,11 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low!");
+}
+
+const char* AForm::IsNotSigned::what() const throw()
+{
+	return ("Form is not signed. Sign before execute!");
 }
 
 int AForm::r2s()
