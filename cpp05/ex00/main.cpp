@@ -1,10 +1,10 @@
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 int main()
 {
-	Bureucrat a("John", 1);
-	Bureucrat b("Doe", 150);
-	Bureucrat c("Smith", 75);
+	Bureaucrat a("John", 1);
+	Bureaucrat b("Doe", 150);
+	Bureaucrat c("Smith", 75);
 
 	std::cout << std::endl << "---------------------------------------" << std::endl << std::endl;
 

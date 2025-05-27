@@ -1,5 +1,5 @@
 #include "Form.hpp"
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form() : _name("no-name"), required2sign(150), required2exec(150)
 {
@@ -39,13 +39,13 @@ Form::Form(const int r2s, const int r2e) : _name("no-name"), required2sign(r2s),
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-Form::Form(const std::string& name) : _name(name), required2exec(75), required2sign(75)
+Form::Form(const std::string& name) : _name(name), required2sign(75), required2exec(75)
 {
 	this->isSigned = false;
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-void Form::beSigned(const Bureucrat& ref)
+void Form::beSigned(const Bureaucrat& ref)
 {
 	if (ref.getGrade() > this->required2sign)
 	{

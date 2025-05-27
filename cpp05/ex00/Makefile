@@ -1,5 +1,5 @@
 SRC = main.cpp \
-		Bureucrat.cpp
+		Bureaucrat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -9,7 +9,7 @@ RM = rm -f
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Bureucrat
+NAME = Bureaucrat
 
 all: $(NAME)
 

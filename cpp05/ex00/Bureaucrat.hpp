@@ -3,20 +3,20 @@
 
 # include <iostream>
 
-class Bureucrat
+class Bureaucrat
 {
 	private:
 		const std::string _name;
 		int _grade;
 	public:
-		Bureucrat();
-		Bureucrat(const Bureucrat& ref);
-		~Bureucrat();
-		Bureucrat& operator=(const Bureucrat& ref);
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat& ref);
+		~Bureaucrat();
+		Bureaucrat& operator=(const Bureaucrat& ref);
 		
-		Bureucrat(const std::string name);
-		Bureucrat(int grade);
-		Bureucrat(const std::string name, int grade);
+		Bureaucrat(const std::string name);
+		Bureaucrat(int grade);
+		Bureaucrat(const std::string name, int grade);
 
 		const std::string getName();
 		int getGrade() const;
@@ -39,6 +39,6 @@ class Bureucrat
 		
 };
 
-std::ostream& operator<<(std::ostream& out, Bureucrat& ref);
+std::ostream& operator<<(std::ostream& out, Bureaucrat& ref);
 
 #endif

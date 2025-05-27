@@ -1,11 +1,11 @@
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 int main()
 {
 	Form frm1("Politic", 12, 12);
 	Form frm2("Economic", 9, 9);
-	Bureucrat one("Jack", 11);
+	Bureaucrat one("Jack", 11);
 
 	std::cout << frm1;
 	std::cout << frm2;

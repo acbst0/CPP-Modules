@@ -5,8 +5,9 @@
 # include <fstream>
 # include <string>
 # include <exception>
+# include "Bureaucrat.hpp"
 
-class Bureucrat;
+class Bureaucrat;
 
 class AForm
 {
@@ -27,12 +28,14 @@ class AForm
 		AForm(const int r2s, const int r2e);
 		AForm(const std::string& name);
 
-		void beSigned(const Bureucrat& ref);
+		void beSigned(const Bureaucrat& ref);
 		int r2s();
 		int r2e();
 
 		const std::string getName();
 		void setisSigned(const AForm& ref);
+
+		void execute(const Bureaucrat& executor) const;
 		class GradeTooHighException : public std::exception
 		{
 			public:

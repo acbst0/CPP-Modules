@@ -1,5 +1,5 @@
 #include "AForm.hpp"
-#include "Bureucrat.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm() : _name("no-name"), required2sign(150), required2exec(150)
 {
@@ -45,7 +45,7 @@ AForm::AForm(const std::string& name) : _name(name), required2sign(75), required
 	//std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-void AForm::beSigned(const Bureucrat& ref)
+void AForm::beSigned(const Bureaucrat& ref)
 {
 	if (ref.getGrade() > this->required2sign)
 	{

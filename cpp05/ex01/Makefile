@@ -1,5 +1,5 @@
 SRC = main.cpp \
-		Bureucrat.cpp \
+		Bureaucrat.cpp \
 		Form.cpp
 
 OBJ = $(SRC:.cpp=.o)

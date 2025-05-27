@@ -2,7 +2,7 @@
 # define FORM_HPP
 
 # include <iostream>
-class Bureucrat;
+class Bureaucrat;
 
 class Form
 {
@@ -22,7 +22,7 @@ class Form
 		Form(const int r2s, const int r2e);
 		Form(const std::string& name);
 
-		void beSigned(const Bureucrat& ref);
+		void beSigned(const Bureaucrat& ref);
 		int r2s();
 		int r2e();
 

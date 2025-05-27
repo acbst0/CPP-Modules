@@ -1,5 +1,5 @@
 SRC = main.cpp \
-		Bureucrat.cpp \
+		Bureaucrat.cpp \
 		AForm.cpp \
 		ShrubberyCreationForm.cpp 
 
