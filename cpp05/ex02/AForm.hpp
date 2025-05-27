@@ -2,6 +2,10 @@
 # define AFORM_HPP
 
 # include <iostream>
+# include <fstream>
+# include <string>
+# include <exception>
+
 class Bureucrat;
 
 class AForm
@@ -11,6 +15,7 @@ class AForm
 		bool isSigned;
 		const int required2sign;
 		const int required2exec;
+		virtual void action() const = 0;
 
 	public:
 		AForm();
@@ -22,11 +27,12 @@ class AForm
 		AForm(const int r2s, const int r2e);
 		AForm(const std::string& name);
 
-		virtual void beSigned(const Bureucrat& ref) = 0;
+		void beSigned(const Bureucrat& ref);
 		int r2s();
 		int r2e();
 
 		const std::string getName();
+		void setisSigned(const AForm& ref);
 		class GradeTooHighException : public std::exception
 		{
 			public:

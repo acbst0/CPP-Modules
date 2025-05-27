@@ -4,18 +4,18 @@
 AForm::AForm() : _name("no-name"), required2sign(150), required2exec(150)
 {
 	this->isSigned = false;
-	std::cout << "A form named " << this->_name << " has been created with default constructor!" << std::endl;
+	//std::cout << "A form named " << this->_name << " has been created with default constructor!" << std::endl;
 }
 
 AForm::AForm(const AForm& ref) : _name(ref._name), required2sign(ref.required2sign), required2exec(ref.required2exec)
 {
 	this->isSigned = ref.isSigned;
-	std::cout << "A form named " << this->_name << " has been created with copy constructor!" << std::endl;
+	//std::cout << "A form named " << this->_name << " has been created with copy constructor!" << std::endl;
 }
 
 AForm::~AForm()
 {
-	std::cout << "A form named " << this->_name << " has been destroyed!" << std::endl;
+	//std::cout << "A form named " << this->_name << " has been destroyed!" << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& ref)
@@ -30,19 +30,19 @@ AForm& AForm::operator=(const AForm& ref)
 AForm::AForm(const std::string& name, const int r2s, const int r2e) : _name(name), required2sign(r2s), required2exec(r2e)
 {
 	this->isSigned = false;
-	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
+	//std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
 AForm::AForm(const int r2s, const int r2e) : _name("no-name"), required2sign(r2s), required2exec(r2e)
 {
 	this->isSigned = false;
-	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
+	//std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-AForm::AForm(const std::string& name) : _name(name), required2exec(75), required2sign(75)
+AForm::AForm(const std::string& name) : _name(name), required2sign(75), required2exec(75)
 {
 	this->isSigned = false;
-	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
+	//std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
 void AForm::beSigned(const Bureucrat& ref)
@@ -61,6 +61,11 @@ void AForm::beSigned(const Bureucrat& ref)
 const std::string AForm::getName()
 {
 	return this->_name;
+}
+
+void AForm::setisSigned(const AForm& ref)
+{
+	this->isSigned = ref.isSigned;
 }
 
 const char* AForm::GradeTooHighException::what() const throw()

@@ -112,7 +112,7 @@ std::ostream& operator<<(std::ostream& out, Bureucrat& ref)
 	return out;
 }
 
-void Bureucrat::signForm(Form& ref)
+void Bureucrat::signForm(AForm& ref)
 {
 	try
 	{
