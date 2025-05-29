@@ -36,11 +36,15 @@ int main()
 
 	Intern guy;
 
-	AForm *ptr = guy.makeForm("Presidential Pardon Form", "test");
-	two.signForm(*ptr);
-	two.executeForm(*ptr);
+	AForm *ptr = guy.makeForm("Robotomy Request Form", "test");
+	if (ptr != NULL)
+	{
+		two.signForm(*ptr);
+		two.executeForm(*ptr);
+		delete ptr;
+	}
 
-	delete ptr;
 	std::cout << std::endl;
+
 	return 0;
 }

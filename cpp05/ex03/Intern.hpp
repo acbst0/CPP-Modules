@@ -11,12 +11,6 @@ class Intern
 		~Intern();
 		Intern& operator=(const Intern& ref);
 		AForm* makeForm(const std::string& _form, const std::string& _target);
-		class WronTypeForm
-		{
-			public:
-
-		};
-		
 };
 
 #endif

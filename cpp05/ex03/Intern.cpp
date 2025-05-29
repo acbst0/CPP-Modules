@@ -30,7 +30,7 @@ AForm* Intern::makeForm(const std::string& _form, const std::string& _target)
 	std::string _names[] = {"Shrubberry Creation Form", "Robotomy Request Form", "Presidential Pardon Form"};
 	int i = 0;
 
-	for (; i < 3 && _form != _names[i]; i++) {}
+	for (; i < 3 && _form != _names[i] && i < 3; i++) {}
 	switch (i)
 	{
 		case 0:
@@ -43,7 +43,7 @@ AForm* Intern::makeForm(const std::string& _form, const std::string& _target)
 			std::cout << "Intern creates " << _form << std::endl;
 			return new PresidentialPardonForm(_target);
 		default:
-			std::cout << "There is not a form type 	as " << _form << std::endl;
+			std::cout << "There is not a form type as " << _form << std::endl;
 			return NULL;
 	}
 	return NULL;
