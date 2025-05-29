@@ -21,7 +21,7 @@ class AForm
 	public:
 		AForm();
 		AForm(const AForm& ref);
-		~AForm();
+		virtual ~AForm();
 		AForm& operator=(const AForm& ref);
 
 		AForm(const std::string& name, const int r2s, const int r2e);

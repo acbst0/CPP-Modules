@@ -1,5 +1,6 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 AForm::AForm() : _name("no-name"), required2sign(150), required2exec(150)
 {

@@ -2,6 +2,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -31,6 +32,15 @@ int main()
 	one.executeForm(MainChar);
 	two.executeForm(MainChar);
 
+	std::cout << std::endl;
+
+	Intern guy;
+
+	AForm *ptr = guy.makeForm("Presidential Pardon Form", "test");
+	two.signForm(*ptr);
+	two.executeForm(*ptr);
+
+	delete ptr;
 	std::cout << std::endl;
 	return 0;
 }

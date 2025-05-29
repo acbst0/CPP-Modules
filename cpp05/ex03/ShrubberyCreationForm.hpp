@@ -17,7 +17,6 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& ref);
 
 		ShrubberyCreationForm(const std::string& target);
-
 		class OpenFileExeption : public std::exception
 		{
 			private:
