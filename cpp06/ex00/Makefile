@@ -1,4 +1,5 @@
 SRC = main.cpp \
+		ScalarConverter.cpp
 		
 
 OBJ = $(SRC:.cpp=.o)
@@ -9,7 +10,7 @@ RM = rm -f
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = casting
+NAME = Casting
 
 all: $(NAME)
 
