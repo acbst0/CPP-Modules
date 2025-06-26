@@ -16,15 +16,21 @@ bool ScalarConverter::is_char(const std::string& ref)
 
 bool ScalarConverter::is_int(const std::string& ref)
 {
-	for (int i = 0; i < ref.length(); i++)
-	{
-		if (!std::isdigit(ref[i]))
-			if (i == 0 && ref[i] == '-')
-				;
-			else
-				return false;
-	}
-	return true;
+    for (size_t i = 0; i < ref.length(); i++)
+    {
+        if (!std::isdigit(ref[i]))
+        {
+            if (i == 0 && ref[i] == '-')
+            {
+                // Allow a leading negative sign
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 bool ScalarConverter::is_double(const std::string& ref)
@@ -32,7 +38,7 @@ bool ScalarConverter::is_double(const std::string& ref)
 	size_t dot_index = ref.find('.');
 	size_t len = ref.length();
 
-	for (int i = 0; i < len; i ++)
+	for (size_t i = 0; i < len; i ++)
 	{
 		if (i == 0 && ref[i] == '-')
 			;
@@ -68,4 +74,34 @@ size_t ScalarConverter::defineType(const std::string& ref)
 		}
 	}
 	return INVALID;
+}
+
+int ScalarConverter::stoi(const std::string& str)
+{
+    std::stringstream ss(str);
+    int result;
+    ss >> result;
+    if (ss.fail() || !ss.eof()) // Check for conversion errors
+        throw std::invalid_argument("Invalid integer format");
+    return result;
+}
+
+float ScalarConverter::stof(const std::string& str)
+{
+    std::stringstream ss(str);
+    float result;
+    ss >> result;
+    if (ss.fail() || !ss.eof()) // Check for conversion errors
+        throw std::invalid_argument("Invalid float format");
+    return result;
+}
+
+double ScalarConverter::stod(const std::string& str)
+{
+    std::stringstream ss(str);
+    double result;
+    ss >> result;
+    if (ss.fail() || !ss.eof()) // Check for conversion errors
+        throw std::invalid_argument("Invalid double format");
+    return result;
 }
