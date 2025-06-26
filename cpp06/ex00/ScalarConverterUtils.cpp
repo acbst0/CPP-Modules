@@ -22,7 +22,7 @@ bool ScalarConverter::is_int(const std::string& ref)
         {
             if (i == 0 && ref[i] == '-')
             {
-                // Allow a leading negative sign
+                
             }
             else
             {
@@ -88,7 +88,11 @@ int ScalarConverter::stoi(const std::string& str)
 
 float ScalarConverter::stof(const std::string& str)
 {
-    std::stringstream ss(str);
+    std::string modifiedStr = str;
+    if (!modifiedStr.empty() && modifiedStr[modifiedStr.length() - 1] == 'f') // Check if the string ends with 'f'
+        modifiedStr = modifiedStr.substr(0, modifiedStr.length() - 1);        // Remove the 'f' suffix
+
+    std::stringstream ss(modifiedStr);
     float result;
     ss >> result;
     if (ss.fail() || !ss.eof()) // Check for conversion errors

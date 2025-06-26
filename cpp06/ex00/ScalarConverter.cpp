@@ -26,6 +26,11 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& ref)
 	return (*this);
 }
 
+const char* ScalarConverter::InvalidInputException::what() const throw()
+{
+	return ("Invalid input");
+}
+
 void ScalarConverter::printSpec(const std::string& ref)
 {
 	if (ref == "nan" || ref == "nanf")
@@ -53,9 +58,12 @@ void ScalarConverter::printSpec(const std::string& ref)
 
 void ScalarConverter::printAll()
 {
-	std::cout << "char: " << _char << std::endl;
+	if (_char < 32 || _char > 126)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: " << _char << std::endl;
 	std::cout << "int: " << _int << std::endl;
-	std::cout << "float: " << _float << std::endl;
+	std::cout << "float: " << _float << "f" << std::endl;
 	std::cout << "double: " << _double << std::endl;
 }
 

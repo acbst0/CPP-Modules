@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <sstream>
+# include <exception>
 
 # define INVALID 0
 # define CHAR 1
@@ -35,6 +36,13 @@ class ScalarConverter
 
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& ref);
+
+		class InvalidInputException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
 	public:
 		~ScalarConverter();
 		ScalarConverter& operator=(const ScalarConverter& ref);
