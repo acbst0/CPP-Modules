@@ -1,5 +1,5 @@
 SRC = main.cpp \
-		
+		Serializer.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
