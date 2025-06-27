@@ -36,6 +36,8 @@ class ScalarConverter
 
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& ref);
+		ScalarConverter& operator=(const ScalarConverter& ref);
+		~ScalarConverter();
 
 		class InvalidInputException : public std::exception
 		{
@@ -44,10 +46,7 @@ class ScalarConverter
 		};
 
 	public:
-		~ScalarConverter();
-		ScalarConverter& operator=(const ScalarConverter& ref);
 
-		// The constructor(s) that i've added
 		static void convert(const std::string& ref);
 };
 

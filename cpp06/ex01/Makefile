@@ -9,7 +9,7 @@ RM = rm -f
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = casting
+NAME = serialization
 
 all: $(NAME)
 

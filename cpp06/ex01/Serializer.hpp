@@ -1,18 +1,19 @@
 #ifndef SEIALIZER_HPP
 # define SEIALIZER_HPP
 
-# include <iostream>
-# include <cstdint>
+# include "Data.hpp"
+# include <stdint.h>
 
 class Serializer
 {
 	private:
-		/* data */
-	public:
 		Serializer();
 		Serializer(const Serializer& ref);
 		Serializer& operator=(const Serializer& ref);
 		~Serializer();
+	public:
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t _raw);
 };
 
 #endif
