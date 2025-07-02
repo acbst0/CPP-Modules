@@ -1,6 +1,4 @@
-SRC = main.cpp \
-		Base.cpp \
-		Utils.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,7 +8,7 @@ RM = rm -f
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = dynamic
+NAME = iter
 
 all: $(NAME)
 
