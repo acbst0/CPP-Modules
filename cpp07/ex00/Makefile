@@ -1,6 +1,4 @@
-SRC = main.cpp \
-		Base.cpp \
-		Utils.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
