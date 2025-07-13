@@ -3,12 +3,12 @@
 
 # include <iostream>
 # include <vector>
+# include <algorithm>
 
 class Span
 {
 	private:
 		unsigned int _capacity;
-		unsigned int instant_size;
 		std::vector<int> _nums;
 	public:
 		Span();
@@ -20,10 +20,20 @@ class Span
 		Span& operator=(const Span& ref);
 
 		void addNumber(int num);
-		template <typename Iterator>
-		void addNumbers(Iterator begin, Iterator end);
 		int shortestSpan() const;
 		int longestSpan() const;
+
+
+
+		template <typename Iterator>
+		void addNumbers(Iterator begin, Iterator end)
+		{
+			std::size_t count = std::distance(begin, end);
+			if (this->_nums.size() + count > this->_capacity)
+				throw CapacityOverflow();
+			for (Iterator it = begin; it != end; ++it)
+				this->addNumber(*it);
+		}
 
 		class CapacityOverflow : public std::exception
 		{
@@ -31,7 +41,5 @@ class Span
 				virtual const char* what() const throw();
 		};
 };
-
-# include "Span.tpp"
 
 #endif
