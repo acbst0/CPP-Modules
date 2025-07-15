@@ -27,14 +27,22 @@ Form& Form::operator=(const Form& ref)
 	return *this;
 }
 
-Form::Form(const std::string& name, const int r2s, const int r2e) : _name(name), required2sign(r2s), required2exec(r2e)
+Form::Form(const std::string& name, const int r2s, const int r2e) : _name(name), required2exec(r2e), required2sign(r2s)
 {
+	if (r2e < 1 || r2s < 1)
+		throw GradeTooHighException();
+	else if (r2e > 150 || r2s > 150)
+		throw GradeTooLowException();
 	this->isSigned = false;
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-Form::Form(const int r2s, const int r2e) : _name("no-name"), required2sign(r2s), required2exec(r2e)
+Form::Form(const int r2s, const int r2e) : _name("no-name"), required2exec(r2e), required2sign(r2s)
 {
+	if (r2e < 1 || r2s < 1)
+		throw GradeTooHighException();
+	else if (r2e > 150 || r2s > 150)
+		throw GradeTooLowException();
 	this->isSigned = false;
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }

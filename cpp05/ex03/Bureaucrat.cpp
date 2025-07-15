@@ -14,6 +14,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& ref) : _name(ref._name)
 
 Bureaucrat::Bureaucrat(const std::string name) : _name(name)
 {
+	this->setGrade(150);
 	std::cout << "A Bureaucrat named " << name << " has been created!" << std::endl;
 }
 

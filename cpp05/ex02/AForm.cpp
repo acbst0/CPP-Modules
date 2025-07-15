@@ -24,11 +24,19 @@ AForm& AForm::operator=(const AForm& ref)
 
 AForm::AForm(const std::string& name, const int r2s, const int r2e) : _name(name), required2sign(r2s), required2exec(r2e)
 {
+	if (r2e < 1 || r2s < 1)
+		throw GradeTooHighException();
+	else if (r2e > 150 || r2s > 150)
+		throw GradeTooLowException();
 	this->isSigned = false;
 }
 
 AForm::AForm(const int r2s, const int r2e) : _name("no-name"), required2sign(r2s), required2exec(r2e)
 {
+	if (r2e < 1 || r2s < 1)
+		throw GradeTooHighException();
+	else if (r2e > 150 || r2s > 150)
+		throw GradeTooLowException();
 	this->isSigned = false;
 }
 
