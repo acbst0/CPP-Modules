@@ -50,7 +50,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& ref)
 	return (*this);
 }
 
-const std::string Bureaucrat::getName()
+const std::string Bureaucrat::getName() const
 {
 	return (this->_name);
 }
@@ -96,13 +96,11 @@ void Bureaucrat::decrement()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	std::cout << "Grade is too high!" << std::endl;
 	return ("Grade is too high!");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	std::cout << "Grade is too low!" << std::endl;
 	return ("Grade is too low!");	
 }
 

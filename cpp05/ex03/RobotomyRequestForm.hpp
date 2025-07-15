@@ -19,6 +19,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& ref);
 
 		RobotomyRequestForm(const std::string& target);
+		const std::string& getTarget() const;
 
 		class RobotomizedFailed : public std::exception
 		{

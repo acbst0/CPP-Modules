@@ -47,10 +47,14 @@ void RobotomyRequestForm::action() const
     if (i % 2 != 0)
         throw RobotomyRequestForm::RobotomizedFailed();
     else
-        std::cout << "Robotomized has been successful for target " << this->_target << std::endl;
+        std::cout << "Robotomized has been successful for target " << this->getTarget() << std::endl;
 }
 
 const char* RobotomyRequestForm::RobotomizedFailed::what() const throw()
 {
 	return ("Robotomy FAILED!");
+}
+
+const std::string& RobotomyRequestForm::getTarget() const {
+    return this->_target;
 }

@@ -34,23 +34,16 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Rob
 	std::cout << this->_target << " and 72 sign grade, 45 exec grade" << std::endl;
 }
 
-void RobotomyRequestForm::action() const
-{
-    static bool seeded = false;
-    if (!seeded) {
-        std::srand(std::time(0));
-        seeded = true;
-    }
-
-    std::cout << "*VRRR! VRRR! VRRR!*" << std::endl;
-    int i = std::rand();
-    if (i % 2 != 0)
-        throw RobotomyRequestForm::RobotomizedFailed();
-    else
-        std::cout << "Robotomized has been successful for target " << this->_target << std::endl;
+const std::string& RobotomyRequestForm::getTarget() const {
+    return this->_target;
 }
 
-const char* RobotomyRequestForm::RobotomizedFailed::what() const throw()
+void RobotomyRequestForm::action() const
 {
-	return ("Robotomy FAILED!");
+    std::cout << "Drilling noises..." << std::endl;
+    if (rand() % 2 == 0) {
+        std::cout << this->getTarget() << " has been robotomized successfully!" << std::endl;
+    } else {
+        std::cout << "Robotomy failed on " << this->getTarget() << "!" << std::endl;
+    }
 }

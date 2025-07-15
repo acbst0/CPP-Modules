@@ -23,8 +23,8 @@ class Form
 		Form(const std::string& name);
 
 		void beSigned(const Bureaucrat& ref);
-		int r2s();
-		int r2e();
+		int r2s() const;
+		int r2e() const;
 
 		const std::string getName();
 		class GradeTooHighException : public std::exception

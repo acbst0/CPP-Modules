@@ -35,9 +35,18 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm(
 	std::cout << this->_target << " and 145 sign grade, 137 exec grade" << std::endl;
 }
 
+const std::string& ShrubberyCreationForm::getTarget() const {
+    return this->_target;
+}
+
+const char* ShrubberyCreationForm::OpenFileExeption::what() const throw()
+{
+	return "There is a problem about file creation!";
+}
+
 void ShrubberyCreationForm::action() const
 {
-	std::ofstream out((_target + std::string("_shrubbery")).c_str());
+	std::ofstream out((this->getTarget() + std::string("_shrubbery")).c_str());
 
 	if (out)
 	{
@@ -55,14 +64,8 @@ void ShrubberyCreationForm::action() const
 		out << "       , -=-~  .-^- _         " << std::endl;
 
 		out.close();
-		std::cout << _target + std::string("_shrubbery") << " has been created!" << std::endl;
+		std::cout << this->getTarget() + std::string("_shrubbery") << " has been created!" << std::endl;
 	}
 	else
 		throw ShrubberyCreationForm::OpenFileExeption();
-}
-
-const char* ShrubberyCreationForm::OpenFileExeption::what() const throw()
-{
-	return "Couldn't open the file!";
-
 }

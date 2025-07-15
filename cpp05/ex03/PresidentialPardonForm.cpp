@@ -34,7 +34,10 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AFor
 	std::cout << this->_target << " and 25 sign grade, 5 exec grade" << std::endl;
 }
 
-void PresidentialPardonForm::action() const
-{
-	std::cout << "The target " << this->_target << " has been pardoned by Zaphod Beeblebrox!" << std::endl;
+void PresidentialPardonForm::action() const {
+    std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+const std::string& PresidentialPardonForm::getTarget() const {
+    return this->_target;
 }

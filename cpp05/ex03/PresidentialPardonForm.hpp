@@ -17,6 +17,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& ref);
 
 		PresidentialPardonForm(const std::string& target);
+		const std::string& getTarget() const;
 };
 
 #endif

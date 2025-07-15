@@ -58,7 +58,7 @@ void Form::beSigned(const Bureaucrat& ref)
 	this->isSigned = true;
 }
 
-const std::string Form::getName()
+const std::string Form::getName() 
 {
 	return this->_name;
 }
@@ -73,12 +73,12 @@ const char* Form::GradeTooLowException::what() const throw()
 	return ("Grade too low!");
 }
 
-int Form::r2s()
+int Form::r2s() const
 {
 	return this->required2sign;
 }
 
-int Form::r2e()
+int Form::r2e() const
 {
 	return this->required2exec;
 }

@@ -25,6 +25,7 @@ class RobotomyRequestForm : public AForm
 			private:
 				virtual const char* what() const throw();
 		};
+		const std::string& getTarget() const;
 };
 
 #endif

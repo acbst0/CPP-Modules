@@ -1,5 +1,5 @@
-#ifndef BUREUCRAT_HPP
-# define BUREUCRAT_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 # include <iostream>
 
@@ -18,7 +18,7 @@ class Bureaucrat
 		Bureaucrat(int grade);
 		Bureaucrat(const std::string name, int grade);
 
-		const std::string getName();
+		const std::string getName() const;
 		int getGrade() const;
 		void setGrade(int grade);
 
