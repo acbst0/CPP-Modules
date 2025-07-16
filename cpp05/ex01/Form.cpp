@@ -27,7 +27,7 @@ Form& Form::operator=(const Form& ref)
 	return *this;
 }
 
-Form::Form(const std::string& name, const int r2s, const int r2e) : _name(name), required2exec(r2e), required2sign(r2s)
+Form::Form(const std::string& name, const int r2s, const int r2e) : _name(name), required2sign(r2s), required2exec(r2e)
 {
 	if (r2e < 1 || r2s < 1)
 		throw GradeTooHighException();
@@ -37,7 +37,7 @@ Form::Form(const std::string& name, const int r2s, const int r2e) : _name(name),
 	std::cout << "A form named " << this->_name << " has been created!" << std::endl;
 }
 
-Form::Form(const int r2s, const int r2e) : _name("no-name"), required2exec(r2e), required2sign(r2s)
+Form::Form(const int r2s, const int r2e) : _name("no-name"), required2sign(r2s), required2exec(r2e)
 {
 	if (r2e < 1 || r2s < 1)
 		throw GradeTooHighException();
