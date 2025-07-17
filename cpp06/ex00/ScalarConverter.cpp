@@ -1,11 +1,6 @@
 #include "ScalarConverter.hpp"
 
-char ScalarConverter::_char = 0;
-int ScalarConverter::_int = 0;
-float ScalarConverter::_float = 0.0f;
-double ScalarConverter::_double = 0.0;
-
-ScalarConverter::ScalarConverter()
+ScalarConverter::ScalarConverter() : _char(0), _int(0), _double(0.0), _float(0.0f)
 {
 	
 }
@@ -22,7 +17,13 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& ref)
 {
-	(void)ref;
+	if (this != &ref)
+	{
+		this->_char = ref._char;
+		this->_int = ref._int;
+		this->_float = ref._float;
+		this->_double = ref._double;
+	}
 	return (*this);
 }
 
@@ -69,39 +70,45 @@ void ScalarConverter::printAll()
 
 void ScalarConverter::convert(const std::string& str)
 {
-	size_t t = ScalarConverter::defineType(str);
+	ScalarConverter converter;
+	
+	size_t t = converter.defineType(str);
 	if (t == SPEC)
 	{
-		printSpec(str);
-		return ;
+		converter.printSpec(str);
+		return;
 	}
 	else if (t == CHAR)
 	{
-		_char = str[0];
-		_int = static_cast<int>(_char);
-		_double = static_cast<double>(_char);
-		_float = static_cast<float>(_char);
+		converter._char = str[0];
+		converter._int = static_cast<int>(converter._char);
+		converter._double = static_cast<double>(converter._char);
+		converter._float = static_cast<float>(converter._char);
 	}
 	else if (t == INT)
 	{
-		_int = ScalarConverter::stoi(str);
-		_char = static_cast<char>(_int);
-		_double = static_cast<double>(_int);
-		_float = static_cast<float>(_int);
+		converter._int = converter.stoi(str);
+		converter._char = static_cast<char>(converter._int);
+		converter._double = static_cast<double>(converter._int);
+		converter._float = static_cast<float>(converter._int);
 	}
 	else if (t == FLOAT)
 	{
-		_float = ScalarConverter::stof(str);
-		_char = static_cast<char>(_float);
-		_int = static_cast<int>(_float);
-		_double = static_cast<double>(_float);
+		converter._float = converter.stof(str);
+		converter._char = static_cast<char>(converter._float);
+		converter._int = static_cast<int>(converter._float);
+		converter._double = static_cast<double>(converter._float);
 	}
 	else if (t == DOUBLE)
 	{
-		_double = ScalarConverter::stod(str);
-		_char = static_cast<char>(_double);
-		_int = static_cast<int>(_double);
-		_float = static_cast<float>(_double);
+		converter._double = converter.stod(str);
+		converter._char = static_cast<char>(converter._double);
+		converter._int = static_cast<int>(converter._double);
+		converter._float = static_cast<float>(converter._double);
 	}
-	printAll();
+	else
+	{
+		throw InvalidInputException();
+	}
+	converter.printAll();
 }

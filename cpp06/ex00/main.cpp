@@ -7,5 +7,13 @@ int main(int ac, char **av)
 		std::cout << "Please enter just 2 input :(" << std::endl;
 		return (0);
 	}
-	ScalarConverter::convert(av[1]);
+	try
+	{
+		ScalarConverter::convert(av[1]);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error : " << e.what() << '\n';
+	}
+	
 }

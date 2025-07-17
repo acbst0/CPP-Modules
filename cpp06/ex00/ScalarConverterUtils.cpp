@@ -81,8 +81,8 @@ int ScalarConverter::stoi(const std::string& str)
     std::stringstream ss(str);
     int result;
     ss >> result;
-    if (ss.fail() || !ss.eof()) // Check for conversion errors
-        throw std::invalid_argument("Invalid integer format");
+    if (ss.fail() || !ss.eof())
+        throw InvalidInputException();
     return result;
 }
 
@@ -95,8 +95,8 @@ float ScalarConverter::stof(const std::string& str)
     std::stringstream ss(modifiedStr);
     float result;
     ss >> result;
-    if (ss.fail() || !ss.eof()) // Check for conversion errors
-        throw std::invalid_argument("Invalid float format");
+    if (ss.fail() || !ss.eof())
+        throw InvalidInputException();
     return result;
 }
 
@@ -105,7 +105,7 @@ double ScalarConverter::stod(const std::string& str)
     std::stringstream ss(str);
     double result;
     ss >> result;
-    if (ss.fail() || !ss.eof()) // Check for conversion errors
-        throw std::invalid_argument("Invalid double format");
+    if (ss.fail() || !ss.eof())
+        throw InvalidInputException();
     return result;
 }
