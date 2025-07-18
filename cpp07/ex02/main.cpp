@@ -1,41 +1,54 @@
+#include <iostream>
 #include "Array.hpp"
-#include <string>
+#include <stdlib.h>
 
-int main() {
-	std::cout << "===== INT ARRAY TEST =====" << std::endl;
-	Array<int> intArr(5);
-	for (size_t i = 0; i < intArr.size(); ++i)
-		intArr[i] = static_cast<int>(i * 10);
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-	for (size_t i = 0; i < intArr.size(); ++i)
-		std::cout << "intArr[" << i << "] = " << intArr[i] << std::endl;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-	try {
-		std::cout << "Trying out-of-bounds access..." << std::endl;
-		std::cout << intArr[10] << std::endl; // should throw
-	} catch (std::exception &e) {
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	}
-
-	std::cout << "\n===== STRING ARRAY TEST =====" << std::endl;
-	Array<std::string> strArr(3);
-	strArr[0] = "Ahmet";
-	strArr[1] = "Cemil";
-	strArr[2] = "Bostanoğlu";
-
-	for (size_t i = 0; i < strArr.size(); ++i)
-		std::cout << "strArr[" << i << "] = " << strArr[i] << std::endl;
-
-	std::cout << "\n===== COPY CONSTRUCTOR TEST =====" << std::endl;
-	Array<std::string> copyArr(strArr);
-	for (size_t i = 0; i < copyArr.size(); ++i)
-		std::cout << "copyArr[" << i << "] = " << copyArr[i] << std::endl;
-
-	std::cout << "\n===== ASSIGNMENT OPERATOR TEST =====" << std::endl;
-	Array<std::string> assignedArr;
-	assignedArr = strArr;
-	for (size_t i = 0; i < assignedArr.size(); ++i)
-		std::cout << "assignedArr[" << i << "] = " << assignedArr[i] << std::endl;
-
-	return 0;
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }
