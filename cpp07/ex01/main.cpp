@@ -35,7 +35,7 @@ int main(void)
 
 	iter<int>(arr, 4, increment);
 	iter<int>(arr, 4, printElement);
-/* 
+
 	// String Test
 	std::string strings[] = {"Ahmet", "Cemil", "Bostanoglu"};
 	iter<std::string>(strings, 3, printOther<std::string>);
@@ -43,5 +43,5 @@ int main(void)
 	// Float Test
 	float floats[] = {1.1f, 2.2f, 3.3f};
 	iter<float>(floats, 3, printOther<float>);
-*/
+
 }
