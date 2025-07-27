@@ -28,7 +28,7 @@ void Span::addNumber(int num)
 int Span::shortestSpan() const
 {
 	if (_nums.size() < 2)
-		throw std::logic_error("Not enough elements");
+		throw NotEnoughElements();
 
 	std::vector<int> sorted = _nums;
 	std::sort(sorted.begin(), sorted.end());
@@ -46,7 +46,7 @@ int Span::shortestSpan() const
 int Span::longestSpan() const
 {
 	if (_nums.size() < 2)
-		throw std::logic_error("Not enough elements");
+		throw NotEnoughElements();
 
 	std::vector<int> sorted = _nums;
 	std::sort(sorted.begin(), sorted.end());
@@ -58,4 +58,9 @@ int Span::longestSpan() const
 const char* Span::CapacityOverflow::what() const throw()
 {
 	return ("Not Enough Capacity! Capacity Overflow");
+}
+
+const char* Span::NotEnoughElements::what() const throw()
+{
+	return ("Not enough elements");
 }
