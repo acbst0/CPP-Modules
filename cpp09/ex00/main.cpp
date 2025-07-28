@@ -13,8 +13,7 @@ int main(int ac, char **av)
 		BitcoinExchange btc(av[1]);
 		btc.checkDB();
 		btc.addAllToMap();
-
-		
+		btc.processInput();
 	}
 	catch(const std::exception& e)
 	{

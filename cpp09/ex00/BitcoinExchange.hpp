@@ -16,14 +16,16 @@ class BitcoinExchange
 
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange& ref);
-		~BitcoinExchange();
 		BitcoinExchange& operator=(const BitcoinExchange& ref);
-
+		
 	public:
 		BitcoinExchange(std::string _target);
+		~BitcoinExchange();
 
 		void checkDB();
 		void addAllToMap();
+		void processInput();
+
 		class FileError : public std::exception
 		{
 			public:
@@ -31,24 +33,6 @@ class BitcoinExchange
 		};
 
 		class DBError : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
-	
-		class TooLargeNum : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
-
-		class NotPositiveNum : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
-
-		class BadInput : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

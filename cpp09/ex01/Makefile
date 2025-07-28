@@ -1,4 +1,5 @@
-SRC = main.cpp
+SRC = main.cpp \
+		RPN.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -8,7 +9,7 @@ RM = rm -f
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = easyfind
+NAME = RPN
 
 all: $(NAME)
 
