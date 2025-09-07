@@ -55,18 +55,13 @@ void BitcoinExchange::checkDB()
 
 		date = trim(date);
 		valueStr = trim(valueStr);
-
-		// Tarih kontrolü
 		if (!isValidDate(date))
 			throw DBError();
-
-		// Sayısal kontrol
 		char* end;
 		double val = std::strtod(valueStr.c_str(), &end);
 		if (*end != '\0' || val < 0)
 			throw DBError();
 	}
-	// Kontrol sonrası dosya başa alınmalı:
 	db.clear();
 	db.seekg(0, std::ios::beg);
 }
@@ -97,7 +92,6 @@ void BitcoinExchange::processInput()
 {
     std::string line;
     
-    // İlk satırı (header) oku ve kontrol et
     if (!std::getline(target, line))
     {
         std::cerr << "Error: empty file." << std::endl;
@@ -107,13 +101,12 @@ void BitcoinExchange::processInput()
     line = trim(line);
     if (line != "date | value")
     {
-        // İlk satır header değilse, onu da process et
         target.clear();
         target.seekg(0, std::ios::beg);
     }
     else
     {
-        // Header varsa atla
+
     }
     
     while (std::getline(target, line))
@@ -133,14 +126,11 @@ void BitcoinExchange::processInput()
         std::string dateStr = trim(line.substr(0, pipePos));
         std::string valueStr = trim(line.substr(pipePos + 3));
         
-        // Tarih formatını kontrol et
         if (!isValidDate(dateStr))
         {
             std::cout << "Error: bad input => " << dateStr << std::endl;
             continue;
         }
-        
-        // Değeri kontrol et
         char* end;
         double value = std::strtod(valueStr.c_str(), &end);
         
@@ -162,7 +152,6 @@ void BitcoinExchange::processInput()
             continue;
         }
         
-        // En yakın tarihi bul (küçük veya eşit)
         std::map<std::string, float>::iterator it = _dates.upper_bound(dateStr);
         
         if (it == _dates.begin())
@@ -170,12 +159,10 @@ void BitcoinExchange::processInput()
             std::cout << "Error: no exchange rate available for date => " << dateStr << std::endl;
             continue;
         }
-        
-        --it; // Bir önceki elementi al (küçük veya eşit olan en büyük)
+        --it;
         
         float exchangeRate = it->second;
         float result = value * exchangeRate;
-        
         std::cout << dateStr << " => " << value << " = " << result << std::endl;
     }
 }
