@@ -15,22 +15,13 @@ class PmergeMe
 		std::vector<int> _vectorData;
 		std::deque<int> _dequeData;
 		
-		// Ford-Johnson algorithm for vector
 		void fordJohnsonVector(std::vector<int>& arr);
 		void insertSortVector(std::vector<int>& arr, int n);
-		
-		// Ford-Johnson algorithm for deque
 		void fordJohnsonDeque(std::deque<int>& arr);
 		void insertSortDeque(std::deque<int>& arr, int n);
-		
-		// Jacobsthal numbers generation
 		std::vector<int> generateJacobsthalSequence(int n);
-		
-		// Binary search insertion
 		void binaryInsertVector(std::vector<int>& arr, int val, int start, int end);
 		void binaryInsertDeque(std::deque<int>& arr, int val, int start, int end);
-		
-		// Utility functions
 		bool isValidNumber(const std::string& str);
 		void parseInput(int ac, char **av);
 		void printSequence(const std::vector<int>& seq, const std::string& label);
