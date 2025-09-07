@@ -41,7 +41,7 @@ void BitcoinExchange::checkDB()
 	std::getline(db, line);
 
 	if (line != "date,exchange_rate")
-		throw DBError(); // başlık hatalı
+		throw DBError();
 
 	int line_num = 1;
 	while (std::getline(db, line))
@@ -51,29 +51,20 @@ void BitcoinExchange::checkDB()
 		std::string date, valueStr;
 
 		if (!std::getline(ss, date, ',') || !std::getline(ss, valueStr))
-		{
-			std::cerr << "Error: Malformed line at " << line_num << ": " << line << std::endl;
 			throw DBError();
-		}
 
 		date = trim(date);
 		valueStr = trim(valueStr);
 
 		// Tarih kontrolü
 		if (!isValidDate(date))
-		{
-			std::cerr << "Error: Invalid date at line " << line_num << ": " << date << std::endl;
 			throw DBError();
-		}
 
 		// Sayısal kontrol
 		char* end;
 		double val = std::strtod(valueStr.c_str(), &end);
 		if (*end != '\0' || val < 0)
-		{
-			std::cerr << "Error: Invalid number at line " << line_num << ": " << valueStr << std::endl;
 			throw DBError();
-		}
 	}
 	// Kontrol sonrası dosya başa alınmalı:
 	db.clear();
@@ -213,26 +204,32 @@ std::string trim(const std::string& str)
 
 bool isValidDate(const std::string& date)
 {
-	if (date.length() != 10 || date[4] != '-' || date[7] != '-')
-		return false;
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+        return false;
 
-	int year, month, day;
-	if (sscanf(date.c_str(), "%4d-%2d-%2d", &year, &month, &day) != 3)
-		return false;
+    int year, month, day;
+    char sep1, sep2;
+    std::istringstream iss(date);
 
-	if (month < 1 || month > 12 || day < 1 || day > 31)
-		return false;
+    if (!(iss >> year >> sep1 >> month >> sep2 >> day))
+        return false;
 
-	if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
-		return false;
-	
-	if (month == 2)
-	{
-		bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-		if (isLeap && day > 29)
-			return false;
-		if (!isLeap && day > 28)
-			return false;
-	}
-	return true;
+    if (sep1 != '-' || sep2 != '-')
+        return false;
+
+    if (month < 1 || month > 12 || day < 1 || day > 31)
+        return false;
+
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
+        return false;
+
+    if (month == 2)
+    {
+        bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        if (isLeap && day > 29)
+            return false;
+        if (!isLeap && day > 28)
+            return false;
+    }
+    return true;
 }
