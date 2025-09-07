@@ -116,10 +116,10 @@ void RPN::calculate()
 
 const char* RPN::InvalidExpressionError::what() const throw()
 {
-	return "Error! Invalid expression.";
+	return "Error";
 }
 
 const char* RPN::DivisionByZeroError::what() const throw()
 {
-	return "Error! Division by zero.";
+	return "Error";
 }
