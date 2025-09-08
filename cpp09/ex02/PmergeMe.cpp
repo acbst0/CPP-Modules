@@ -187,7 +187,8 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& arr)
 			pairs.push_back(std::make_pair(arr[i+1], arr[i]));
 	}
 	
-	std::vector<int> larger, smaller;
+	std::vector<int> larger;
+	std::vector<int> smaller;
 	for (size_t i = 0; i < pairs.size(); i++)
 	{
 		larger.push_back(pairs[i].first);
@@ -200,8 +201,8 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& arr)
 
 	std::vector<int> jacobsthal = generateJacobsthalSequence(smaller.size());
 	std::vector<bool> inserted(smaller.size(), false);
-	if (!smaller.empty()) inserted[0] = true;
-	
+	if (!smaller.empty())
+		inserted[0] = true;
 	for (size_t i = 1; i < jacobsthal.size(); i++)
 	{
 		int start;
@@ -257,7 +258,8 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& arr)
 			pairs.push_back(std::make_pair(arr[i+1], arr[i]));
 	}
 	
-	std::deque<int> larger, smaller;
+	std::deque<int> larger;
+	std::deque<int> smaller;
 	for (size_t i = 0; i < pairs.size(); i++)
 	{
 		larger.push_back(pairs[i].first);
@@ -270,7 +272,8 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& arr)
 		arr.insert(arr.begin(), smaller[0]);
 	std::vector<int> jacobsthal = generateJacobsthalSequence(smaller.size());
 	std::vector<bool> inserted(smaller.size(), false);
-	if (!smaller.empty()) inserted[0] = true;
+	if (!smaller.empty())
+		inserted[0] = true;
 	
 	for (size_t i = 1; i < jacobsthal.size(); i++)
 	{
